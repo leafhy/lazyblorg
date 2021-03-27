@@ -12,10 +12,10 @@ $lightgray: #e0e0e0;
 $gray: #7e7e7e; /* replacing #555 */
 $darkgray: #252525;
 
-$darkblue: #2222ff;
-$darkaquablue: #004977;
+$darkblue: #912c73; /* #2222ff; */
+$darkaquablue: #912c73; /* #004977; */
 
-$lightyellow: #fffff0;
+$lightyellow: #8db0a5; /* #fffff0; */
 
 
 header {
@@ -58,7 +58,7 @@ a {
 @mixin show-big-search {
     #search-big {
 	border: 0;
-	visibility: visible;
+	visibility: hidden;
 	height: 6em;
     }
     #search-narrow {
@@ -75,7 +75,7 @@ a {
     }
     #search-narrow {
 	border: 0;
-	visibility: visible;
+	visibility: hidden;
 	height: 6em;
     }
 }
@@ -692,7 +692,7 @@ footer {
     float: right;
     width: 15em;
     padding: 1em 0em 0em 1em; /* top right bottom left */
-
+    visibility: hidden;
     ul li {
     /* definition: http://www.w3schools.com/cssref/pr_list-style.asp
           list-style: list-style-type list-style-position list-style-image|initial|inherit;
