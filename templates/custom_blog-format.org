@@ -339,7 +339,7 @@ With name/label:
 
   <p>
 
-    Most recent articles or updates:
+    Recent Posts:
 
   </p>
   </div>
