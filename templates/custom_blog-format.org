@@ -331,7 +331,7 @@ With name/label:
 	  <aside class="tag-cloud">
 	    <ul>
 
-#TAGOVERVIEW-CLOUD#
+<!-- #TAGOVERVIEW-CLOUD# -->
 
             </ul>
           </aside>
