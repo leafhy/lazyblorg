@@ -19,12 +19,12 @@ import os
 
 # strings: Your personal name and the name of your blog:
 AUTHOR_NAME = ''
-BLOG_NAME = 'Tinketernal'
+BLOG_NAME = 'T'
 
 ## strings: Define your URLs and your name below:
-DOMAIN = 'voidli:2015'
+DOMAIN = '/'
 BASE_URL = '//' + DOMAIN
-CSS_URL = BASE_URL + '/puv.css'
+CSS_URL = BASE_URL + '/custom_public_voit.css'
 ##'/custom_public_voit.css'
 BLOG_LOGO = BASE_URL + ''
 DISQUS_NAME = ''  # gets placed in: '//publicvoit.disqus.com/embed.js'
@@ -116,7 +116,7 @@ DIRECTORIES_WITH_IMAGE_ORIGINALS = ["testdata/testimages",
 ## If not empty: Contains a tag which should be part of any image
 ## file included. If the image file does not contain this filetag,
 ## a warning is issued in the console output.
-WARN_IF_IMAGE_FILE_NOT_TAGGED_WITH="publictinkerer"
+WARN_IF_IMAGE_FILE_NOT_TAGGED_WITH="publicT"
 
 ## According to https://github.com/novoid/lazyblorg/wiki/Images
 ## you can link to a differently sized image when including a
