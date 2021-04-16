@@ -374,7 +374,7 @@ With name/label:
 
   <div class="entry-page-greetings">
   <p>
-     This blog is mostly code snippets, problems solved and thoughts.
+     This blog is my tiny place.
  <!--  This is the home-page of #AUTHOR-NAME#. -->
 
   </p>
