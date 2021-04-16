@@ -63,6 +63,38 @@ Have fun with modifying lazyblorg to your requirements!
 
 ** General elements
 
+*** Sidebar
+
+#+NAME: common-sidebar
+#+BEGIN_EXPORT HTML
+
+<!--  <a id="show-sidebar-text" href="#show-sidebar">Show Sidebar</a>
+  <div class="sidebar toggle-sidebar">
+     <div class="search">
+       <iframe id="search-big" src="//duckduckgo.com/search.html?width=140&site=#DOMAIN#&prefill=Search%20blog"></iframe>
+       <iframe id="search-narrow" src="//duckduckgo.com/search.html?width=70&k1=-1&k2=s&site=#DOMAIN#&prefill=Search"></iframe>
+       <br/>
+     </div>
+     <ul>
+     <li><a href="#BASE-URL#">Recent articles</a></li>
+     <li>[[id:#ABOUT-PAGE-ID#][About this blog]]</li>
+     <li>[[id:#HOWTO-PAGE-ID#][How to use this blog efficiently]]</li>
+     <li><img src="#BASE-URL#/images/feed-icon-14x14.png" alt="RSS icon" />&nbsp;Subscribe to one of my feeds:
+         <ul>
+         <li><span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml">links only feed</a> (most reliable)</span></li>
+         <li><span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml">article teaser feed</a></span></li>
+         <li><span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml">full content feed</a></span></li>
+         </ul></li>
+     <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Per Tag Feeds</span></li>
+     <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Archive</span></li>
+     <li>Top <a href="#BASE-URL#/tags/">tags</a>:
+         <ul class="top-tags-list">
+              #TOP-TAG-LIST#
+         </ul></li>
+     </ul>
+  </div> -->
+
+#+END_EXPORT
 
 *** Sections
 
@@ -230,6 +262,14 @@ With name/label:
 
 #+END_EXPORT
 
+#+NAME: backreference-header-de
+#+BEGIN_EXPORT HTML
+
+<div class="back-references"><hr /><p>Ähnliche Beiträge, die hierher zeigen:</p>
+  <ul>
+
+#+END_EXPORT
+
 #+NAME: backreference-item
 #+BEGIN_EXPORT HTML
     <li>#REFERENCE#</li>
@@ -252,6 +292,13 @@ With name/label:
 	  </aside>
 #+END_HTML
 
+#+NAME: reading-time-one-minute-de
+#+BEGIN_HTML
+	  <aside class="reading-time-section">
+          Lesezeit ist eine Minute
+	  </aside>
+#+END_HTML
+
 #+NAME: reading-time-multiple-minutes-en
 #+BEGIN_HTML
 	  <aside class="reading-time-section">
@@ -259,6 +306,12 @@ With name/label:
 	  </aside>
 #+END_HTML
 
+#+NAME: reading-time-multiple-minutes-de
+#+BEGIN_HTML
+	  <aside class="reading-time-section">
+          Lesezeit ist #READINGMINUTES# Minuten
+	  </aside>
+#+END_HTML
 
 *** ignore me
 
@@ -291,11 +344,17 @@ With name/label:
   <meta name="generator" content="lazyblorg" />
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
-        
+
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
-  <title>#BLOG-NAME# - Homepage of #AUTHOR-NAME#</title>
+<!-- <title>#BLOG-NAME# - Homepage of #AUTHOR-NAME#</title> -->
   </head>
 
   <body class="persistent-body">
@@ -304,7 +363,8 @@ With name/label:
 
       <nav class="entrypage-article-header-nav">
         <span class="breadcrumbs">
-          <img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"><span style="padding-top:1em;">
+        <!-- <img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"><span style="padding-top:1em;"> -->
+        #BLOG-NAME#
         </span>
       </nav>
 
@@ -314,36 +374,42 @@ With name/label:
 
   <div class="entry-page-greetings">
   <p>
-
-    This is the home-page of #AUTHOR-NAME#.
+     This blog is mostly code snippets, problems solved and thoughts.
+ <!--  This is the home-page of #AUTHOR-NAME#. -->
 
   </p>
 
-  <p>
+<!--
+<p>
 
     On this page you can see the latest blog updates. For further articles, please use the <b>search bar</b> or <b>navigate through <a href="tags/">the blue tags</a></b>.
     My recommendations are <a href="tags/pim/">pim</a>, <a href="tags/privacy/">privacy</a>, or <a href="tags/security/">security</a>.
 
   </p>
 
+  <p>
 
+    <a href="how-to-use-public-voit/">I recommend</a> any decent <a href="https://en.wikipedia.org/wiki/RSS">RSS</a>/<a href="https://en.wikipedia.org/wiki/Atom_(standard)">Atom aggregator</a> to get notified on blog updates.
+
+  </p>
+-->
   <p>
 	  <aside class="tag-cloud">
 	    <ul>
 
-<!-- #TAGOVERVIEW-CLOUD# -->
-
+#TAGOVERVIEW-CLOUD#
+   
             </ul>
           </aside>
   </p>
-
+<!--
   <p>
 
     Recent Posts:
 
   </p>
   </div>
-
+-->
 #+END_EXPORT
 
 **** Article-Preview
@@ -423,13 +489,13 @@ With name/label:
 
 
     <footer>
-      <p><i>[[id:#ABOUT-PAGE-ID#][#BLOG-NAME#]]</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+      <p><i>#BLOG-NAME#</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//jigsaw.w3.org/css-validator/">CSS3</a>
 
-	 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/">Archive</a>
+	 <!--	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/">Archive</a> -->
 
 	 	&nbsp;&bull;&nbsp; <a href="https://jeffhuang.com/designed_to_last/">Designed to Last</a>
       </p>
@@ -458,6 +524,13 @@ With name/label:
   <meta name="orgmode-id" content="#ARTICLE-ID#" />
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
+
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -489,8 +562,9 @@ With name/label:
 
 	  <nav class="persistent-article-header-nav">
 	    <span class="breadcrumbs">
-	      <a href="../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a>
-	    </span>
+	    <!--  <a href="../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a> -->
+       <a href="../">#BLOG-NAME#</a>
+      </span>
 	  </nav>
 
 #+END_EXPORT
@@ -498,8 +572,9 @@ With name/label:
 #+NAME: persistent-header-end
 #+BEGIN_EXPORT HTML
 
-	  <h1 class="common-article-header-title">#ARTICLE-TITLE#</h1>
-
+	  <h1 class=common-article-header-title">#ARTICLE-TITLE#</h1>
+    <aside class="published-on">
+	   Published on <time datetime="#ARTICLE-PUBLISHED-HTML-DATETIME#">#ARTICLE-PUBLISHED-HUMAN-READABLE#</time>
     #READING-MINUTES-SECTION#
 
 	</header>
@@ -521,17 +596,19 @@ With name/label:
 
 #+NAME: persistent-footer
 #+BEGIN_EXPORT HTML
-	  <aside class="published-on">
+<!--	  <aside class="published-on">
 	    Published on <time datetime="#ARTICLE-PUBLISHED-HTML-DATETIME#">#ARTICLE-PUBLISHED-HUMAN-READABLE#</time>
 	  </aside>
-
+-->
    <p class="email-comment">
-      <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a> or via <a href="//disqus.com">Disqus</a> comments below:
-   </p>
+<!--      <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a> or via <a href="//disqus.com">Disqus</a> comments below: -->
+          <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a>
+</p>
 
+<!--
     <div id="disqus_thread"></div>
     <div id="disqus_loader" style="text-align: center">
-      <!-- stolen from http://blog.yjl.im/2012/04/let-your-readers-decide-when-to-load.html -->
+      <!- - stolen from http://blog.yjl.im/2012/04/let-your-readers-decide-when-to-load.html - ->
       <button onclick="load_disqus()">Load Disqus Comments</button>
       <script>
         function load_disqus()
@@ -548,15 +625,15 @@ With name/label:
       </script>
     </div>
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">Disqus comments.</a></noscript>
-
+-->
     <footer>
-      <p><i>[[id:#ABOUT-PAGE-ID#][#BLOG-NAME#]]</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+      <p><i>#BLOG-NAME#</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//jigsaw.w3.org/css-validator/">CSS3</a>
 
-	 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/">Archive</a>
+	<!-- &nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/">Archive</a> -->
 
 	 	&nbsp;&bull;&nbsp; <a href="https://jeffhuang.com/designed_to_last/">Designed to Last</a>
       </p>
@@ -603,6 +680,12 @@ With name/label:
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
 
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -635,9 +718,11 @@ With name/label:
 
 	  <nav class="temporal-article-header-nav">
 	    <span class="breadcrumbs">
-	      <a href="../../../../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;
-	      <a href="../../../">#ARTICLE-YEAR#</a>&nbsp;&ndash;&nbsp;<a href="../../">#ARTICLE-MONTH#</a>&nbsp;&ndash;&nbsp;<a href="../">#ARTICLE-DAY#</a></span>
-	    </span>
+	    <!-- <a href="../../../../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo; -->
+      <!-- <a href="../../../../">#BLOG-NAME#</a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;<a href="#BASE-URL#/tags/">Tags</a>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;
+	      <a href="../../../">#ARTICLE-YEAR#</a>&nbsp;&ndash;&nbsp;<a href="../../">#ARTICLE-MONTH#</a>&nbsp;&ndash;&nbsp;<a href="../">#ARTICLE-DAY#</a></span> -->
+          <a href="../../../../">#BLOG-NAME#</a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;<a href="#BASE-URL#/tags/">Tags</a>	    
+       </span>
 	  </nav>
 
 #+END_EXPORT
@@ -683,7 +768,8 @@ With name/label:
 #+BEGIN_EXPORT HTML
 
 	  <h1 class="common-article-header-title">#ARTICLE-TITLE#</h1>
-
+ <aside class="published-on">
+	    Published on <time datetime="#ARTICLE-PUBLISHED-HTML-DATETIME#">#ARTICLE-PUBLISHED-HUMAN-READABLE#</time>
   #READING-MINUTES-SECTION#
 
 	</header>
@@ -706,17 +792,18 @@ With name/label:
 
 #+NAME: article-footer
 #+BEGIN_EXPORT HTML
-	  <aside class="published-on">
+<!--	  <aside class="published-on">
 	    Published on <time datetime="#ARTICLE-PUBLISHED-HTML-DATETIME#">#ARTICLE-PUBLISHED-HUMAN-READABLE#</time>
 	  </aside>
-
+-->
    <p class="email-comment">
-      <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a> or via <a href="//disqus.com">Disqus</a> comments below:
-   </p>
+<!--      <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a> or via <a href="//disqus.com">Disqus</a> comments below: -->
+          <a href="mailto:#COMMENT-EMAIL-ADDRESS#?subject=#ARTICLE-ID#%20comment:%20&body=Please%20do%20not%20remove%20'#ARTICLE-ID#%20comment:'%20in%20subject%20and%20please%20tell%20me%20whether%20or%20not%20it%20is%20OK%20to%20add%20your%20comment%20and%2For%20your%20name%20and%2For%20your%20email%20address%20to%20the%20blog%20entry!">Comment via email</a>
+</p>
 
-    <div id="disqus_thread"></div>
+<!--    <div id="disqus_thread"></div>
     <div id="disqus_loader" style="text-align: center">
-      <!-- stolen from http://blog.yjl.im/2012/04/let-your-readers-decide-when-to-load.html -->
+      <!- - stolen from http://blog.yjl.im/2012/04/let-your-readers-decide-when-to-load.html - ->
       <button onclick="load_disqus()">Load Disqus Comments</button>
       <script>
         function load_disqus()
@@ -733,15 +820,15 @@ With name/label:
       </script>
     </div>
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">Disqus comments.</a></noscript>
-
+-->
     <footer>
-      <p><i>[[id:#ABOUT-PAGE-ID#][#BLOG-NAME#]]</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+      <p><i>#BLOG-NAME#</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//jigsaw.w3.org/css-validator/">CSS3</a>
 
-	 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/#ARTICLE-URL#/">Archive</a>
+	<!-- 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/#ARTICLE-URL#/">Archive</a> -->
 
 	 	&nbsp;&bull;&nbsp; <a href="https://jeffhuang.com/designed_to_last/">Designed to Last</a>
       </p>
@@ -789,6 +876,12 @@ A single page which is used as template for =example.com/tags/index.html=.
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
 
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -807,8 +900,9 @@ A single page which is used as template for =example.com/tags/index.html=.
 
 	  <nav class="temporal-article-header-nav">
 	    <span class="breadcrumbs">
-	      <a href="../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Tags</span>
-	    </span>
+	    <!-- <a href="../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Tags</span> -->
+          <a href="../">#BLOG-NAME#</a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;Tags</span>       
+      </span>
 	  </nav>
 
 	</header>
@@ -817,14 +911,15 @@ A single page which is used as template for =example.com/tags/index.html=.
 
   <article class="common-article">
 
+<!--    
     <p>
 
     Tag cloud of all tags except «<a href="hardware">hardware</a>» and «<a href="software">software</a>» which are my most general tags.
     The bigger the tag, the more articles are tagged with it.
-    <!-- Tag Cloud: FIXXME: legend explaining size and colour -->
+    <!- - Tag Cloud: FIXXME: legend explaining size and colour - ->
 
     </p>
-
+-->
 	  <aside class="tag-cloud">
 	    <ul>
 
@@ -842,13 +937,13 @@ A single page which is used as template for =example.com/tags/index.html=.
 #+NAME: tagoverviewpage-footer
 #+BEGIN_EXPORT HTML
     <footer>
-      <p><i>[[id:#ABOUT-PAGE-ID#][#BLOG-NAME#]]</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+      <p><i>#BLOG-NAME#</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//jigsaw.w3.org/css-validator/">CSS3</a>
 
-	 	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/#ARTICLE-URL#/">Archive</a>
+<!--	&nbsp;&bull;&nbsp; <a href="https://web.archive.org/web/*/#DOMAIN#/#ARTICLE-URL#/">Archive</a> -->
 
 	 	&nbsp;&bull;&nbsp; <a href="https://jeffhuang.com/designed_to_last/">Designed to Last</a>
       </p>
@@ -932,14 +1027,16 @@ Pages that describe a tag. Corresponding Org-mode entries must have:
 #+BEGIN_EXPORT HTML
   <body>
 
-    <div class="common-orgsource"><a href="source.org.txt">&#960;</a></div>
+    <!-- <div class="common-orgsource"><a href="source.org.txt">&#960;</a></div> -->
 
 
 	<header>
 
 	  <nav class="temporal-article-header-nav">
 	    <span class="breadcrumbs">
-	      <a href="../../../../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;<a href="../">Tags</a>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;#ARTICLE-TITLE#</span>
+	     <!-- <a href="../../../../"><img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"></a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;<a href="../">Tags</a>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;#ARTICLE-TITLE#</span> -->
+        <a href="../../../../">#BLOG-NAME#</a><span style="padding-top:1em;">&nbsp;&nbsp;&nbsp;&nbsp;&raquo;<a href="../">Tags</a>&nbsp;&nbsp;&nbsp;&nbsp;&raquo;#ARTICLE-TITLE#</span>
+       
 	    </span>
 	  </nav>
 
@@ -1034,7 +1131,13 @@ FIXXME
   <meta name="generator" content="lazyblorg" />
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
-        
+
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (article teasers)" href="#FEEDURL_TEASER#" />
+  <link rel="alternate" type="application/atom+xml"
+        title="#BLOG-NAME# (full content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -1094,7 +1197,7 @@ FIXXME
     </article>
 
     <footer>
-      <p><i>[[id:#ABOUT-PAGE-ID#][#BLOG-NAME#]]</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
+      <p><i>#BLOG-NAME#</i> is authored in <a href="//orgmode.org">Org mode</a> and generated by <a href="https://github.com/novoid/lazyblorg">lazyblorg</a>
 
 	 	&nbsp;&bull;&nbsp; <a href="//validator.w3.org/check/referer">HTML5</a>
 
@@ -1134,6 +1237,14 @@ As long as lazyblorg does not support tag pages for autotags, every
 autotag links to here.
 
 Autotags are tags like 'language:english' or 'size:small' and so on.
+
+** Deutsch
+
+Das ist eine Platzhalterseite, die als Sprungziel verwendet wird, bis
+lazyblorg auch tag pages für autotags unterstützt.
+
+Autotags sind tags wie beispielsweise 'language:english' oder
+'size:small' und so weiter.
 
 * Local Variables                                                                          :noexport:
 :PROPERTIES:
