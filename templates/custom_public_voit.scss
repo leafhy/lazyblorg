@@ -12,10 +12,10 @@ $lightgray: #e0e0e0;
 $gray: #7e7e7e; /* replacing #555 */
 $darkgray: #252525;
 
-$darkblue: #912c73; /* #2222ff; */
+$darkblue: #9c4181; /* #2222ff; */
 $darkaquablue: #912c73; /* #004977; */
 
-$lightyellow: #8db0a5; /* #fffff0; */
+$lightyellow: #dec99f; /* #fffff0; */
 
 
 header {
@@ -237,7 +237,7 @@ a {
     padding-bottom: 1em;
     padding-right: 1em;*/
     border-radius: 1em;
-    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.2);
     background: $verylightgray;
     margin-bottom: 20px;
 /*    margin-left: -2em;*/
@@ -255,7 +255,6 @@ a {
     /* tags CSS originally and happily stolen from http://cssglobe.com/pure-css3-post-tags/ */
     @extend .middle_section_narrow;
     margin-right: 20%;  /* FIXXME: workaround until format of middle-section-narrow works */
-
     /*margin: 0;*/
     /*padding: 0;
     margin-top: 1em;
@@ -287,15 +286,15 @@ a {
 	margin-left: 20px;
 	padding: 0 10px 0 12px;
 	background: $darkblue;
-	color: $white;
+/*	color: $white;*/
 	text-decoration: none;
-	-moz-border-radius-bottomright: 4px;
+/*	-moz-border-radius-bottomright: 4px;
 	-webkit-border-bottom-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 	-moz-border-radius-topright: 4px;
 	-webkit-border-top-right-radius: 4px;
-	border-top-right-radius: 4px;
-	&:before {
+	border-top-right-radius: 4px; */
+/*	&:before {
 	    content: "";
 	    float: left;
 	    position: absolute;
@@ -322,21 +321,36 @@ a {
 	    -moz-box-shadow: -1px -1px 2px $darkaquablue;
 	    -webkit-box-shadow: -1px -1px 2px $darkaquablue;
 	    box-shadow: -1px -1px 2px $darkaquablue;
-	}
-	&:hover {
+	} */
+/*	&:hover {
 	    background: $gray;
 	    &:before {
 		border-color: transparent $gray transparent transparent;
+	    }*/
+	  }
+     a:link {
+      color: white;
+     }
+ a:visited {
+        color: #c0c0c0;
+  }
+	a:hover {
+	    background: $gray;
+	    a:before {
+		border-color: transparent $gray transparent transparent;
 	    }
-	}
+  &:focus {
+      color: red;
+  }
+
     }
 }
 
 .tag-cloud {
     .tagcloud-size-0 {
-	font-size: 80%;
+	font-size: 100%;
     }
-    .tagcloud-size-1 {
+/*  .tagcloud-size-1 {
 	font-size: 120%;
     }
     .tagcloud-size-2 {
@@ -353,9 +367,8 @@ a {
     }
     .tagcloud-size-6 {
 	font-size: 380%;
-    }
-
-    ul
+    } */
+  ul
     {
 	list-style-type: none;
 	overflow: auto;
@@ -366,10 +379,26 @@ a {
 	margin-left: 20px;
 	padding: 0 10px 0 12px;
 	text-decoration: none;
+  background: $darkblue;
+  margin: 3px;
     }
 
+ a:link {
+     color: white;
+ }
+ a:visited {
+  color: #c0c0c0;
 }
-
+ a:hover {
+	    background: $gray;
+	    &:before {
+		border-color: transparent $gray transparent transparent;
+      }
+ }
+ a:focus {
+     color: red;
+}
+}
 .common-article {
     @extend .middle_section_narrow;
     margin-left: auto;
@@ -428,7 +457,7 @@ blockquote {
     background: $white;
     padding: 1em;
     border-radius: 1em;
-    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.2);
     &:before {
 	/* http://text.jpatch.net/2010/09/css2-no-image-quotation-marks-in-blockquotes/ */
 	content: '\201C';
@@ -525,18 +554,19 @@ figcaption {
 
 .published-on {
     @extend .middle_section_wide;
-    font-size: 80%;
-    color: gray;
-    text-align: right;
+    font-size: 100%;
+    color: blue;
+    /* text-align: right; */
     margin-left: auto;
     margin-right: auto;
     padding-top: 2em;
+    padding-left: 10em;
 }
 
 .tag-pages-link-list {
     .timestamp {
-	@include minor-contrast;
-	font-size: 80%;
+/*	@include minor-contrast; */
+	font-size: 100%;
     }
 }
 
@@ -545,7 +575,7 @@ footer {
     @extend .middle_section_wide;
     padding: 0.1em;
     border-radius: 1em;
-    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.2);
     background: $verylightgray;
     text-align: center;
     color: gray;
@@ -557,12 +587,12 @@ footer {
     margin-top: 5em;
 }
 
-#disqus_thread {
+/* #disqus_thread {
     @extend .middle_section_narrow;
     margin-left: auto;
     margin-right: auto;
 }
-
+*/
 
 /*  ------------------------------------------
  *  Article
@@ -609,11 +639,11 @@ footer {
 }
 
 .persistent-body {
-    margin-left: auto;
+ margin-left: auto;
     margin-right: auto;
     p {
 	/*@extend .middle_section_narrow;*/
-    }
+}
     h1 {
 	font-size: 100%;
 	color: black;
@@ -644,7 +674,7 @@ footer {
     margin-bottom: 1.5em;
     border-radius: 0.2em;
 /*    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);*/
-    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 15px rgba(0, 0, 0, 0.2);
     background: white;
     .entry-page-article-tags {
 	margin: -1.5em -1em 0px 0px;
