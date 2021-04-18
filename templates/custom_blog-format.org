@@ -364,7 +364,15 @@ With name/label:
       <nav class="entrypage-article-header-nav">
         <span class="breadcrumbs">
         <!-- <img src="#BLOG-LOGO#" alt="#BLOG-NAME# logo" width="350" style="vertical-align:middle;"><span style="padding-top:1em;"> -->
-        #BLOG-NAME#
+        <ul style="margin-left:0">#BLOG-NAME#</ul>
+        <ul style="text-align:left;margin-top:50px;margin-bottom:0;padding:0">
+        <ul style="list-style-type:none;">
+        <img src="#BASE-URL#/images/social_style_3_rss-2-1.png" alt="RSS icon" />&nbsp;<span style="font-size:small">RSS feeds:</span>
+        <li <span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml">links only</a> (most reliable)</span></li>
+        <li <span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-teaser.xml">article teaser</a></span></li>
+        <li <span style="font-size:small"><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml">full content</a></span></li>
+        </ul>
+        </ul>
         </span>
       </nav>
 
@@ -374,7 +382,7 @@ With name/label:
 
   <div class="entry-page-greetings">
   <p>
-     This blog is my tiny place.
+      <ul style="margin-left:5px;margin-top:50px;margin-bottom:50px"> This blog is my tiny place.</ul>
  <!--  This is the home-page of #AUTHOR-NAME#. -->
 
   </p>
