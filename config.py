@@ -22,9 +22,9 @@ AUTHOR_NAME = ''
 BLOG_NAME = 'T'
 
 ## strings: Define your URLs and your name below:
-DOMAIN = '/'
+DOMAIN = 'hostname:2015'
 BASE_URL = '//' + DOMAIN
-CSS_URL = BASE_URL + '/custom_public_voit.css'
+CSS_URL = BASE_URL + '/templates/custom_public_voit.css'
 ##'/custom_public_voit.css'
 BLOG_LOGO = BASE_URL + ''
 DISQUS_NAME = ''  # gets placed in: '//publicvoit.disqus.com/embed.js'
